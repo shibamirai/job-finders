@@ -15,17 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [JobFinderController::class, 'index']);
 Route::get('job-finders', [JobFinderController::class, 'index'])->name('home');
+Route::get('job-finders/{jobFinder}', [JobFinderController::class, 'show']);
 
 Route::middleware(['auth'])->group(function() {
     Route::get('admin/job-finders', [AdminJobFinderController::class, 'index']);
     Route::get('admin/job-finders/create', [AdminJobFinderController::class, 'create']);
     Route::post('admin/job-finders', [AdminJobFinderController::class, 'store']);
-    Route::get('admin/job-finders/{jobfinder}', [AdminJobFinderController::class, 'show']);
+    Route::get('admin/job-finders/{jobFinder}', [AdminJobFinderController::class, 'show']);
+    Route::delete('admin/job-finders/{jobFinder}', [AdminJobFinderController::class, 'destroy']);
 });
 
 require __DIR__.'/auth.php';

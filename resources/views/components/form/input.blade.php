@@ -1,13 +1,22 @@
-@props(['name', 'placeholder'])
+@props(['name'])
 
 <x-form.field name="{{ $name }}">
-    <x-slot name="label">
-        {{ $slot }}
-    </x-slot>
-
-    <input
-        type="text" name="{{ $name }}" id="{{ $name }}"
-        class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-        placeholder="{{ $placeholder }}"
-    >
+    <div class="md:w-1/6">
+        <label
+            for="{{ $name }}"
+            class="block mb-1 md:mb-0 pr-4"
+        >
+            {{ $slot }}
+        </label>
+    </div>
+    <div class="md:w-5/6">
+        <input
+            name="{{ $name }}" id="{{ $name }}"
+            {{ $attributes->merge([
+                'class' => 'shadow appearance-none border border-gray-200 rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline',
+                'value' => old($name)
+            ]) }}
+        >
+        <x-form.error name="{{ $name }}" />
+    </div>
 </x-form.field>

@@ -15,11 +15,19 @@ class CreateJobFindersTable extends Migration
     {
         Schema::create('job_finders', function (Blueprint $table) {
             $table->id();
+            $table->string('avatar');
             $table->string('name');
+            $table->integer('gender')->default(0);
+            $table->integer('age');
             $table->string('handicaps')->nullable();
+            $table->boolean('has_certificate')->default(false);
+            $table->date('use_from');
             $table->string('skills')->nullable();
             $table->string('occupation');
             $table->string('description');
+            $table->date('hired_at');
+            $table->integer('employment_pattern');
+            $table->boolean('is_handicaps_opened');
             $table->timestamps();
         });
     }
