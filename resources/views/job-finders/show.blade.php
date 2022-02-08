@@ -7,8 +7,8 @@
         <div class="lg:flex">
             <div class="flex-1 lg:px-10 py-8">
                 <div class="pl-4">
-                    <img src="{{ $job_finder->avatar }}100?u={{ $job_finder->id }}" alt="" class="rounded-full mb-4">
-                    <p class="">{{ $job_finder->age }}歳 {{ $job_finder->gender_str }}</p>
+                    <img src="{{ asset('avatar/' . $job_finder->avatar) }}" alt="" class="rounded-full w-48 border-4 border-gray-500">
+                    <p class="relative left-14">{{ $job_finder->age }}歳 {{ $job_finder->gender_str }}</p>
                     <p class="text-2xl font-bold text-cyan-500 tracking-wider py-1">{{ $job_finder->occupation }}</p>
                     <p class="">{{ $job_finder->description }}</p>
                 </div>

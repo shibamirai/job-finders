@@ -5,6 +5,7 @@ namespace Database\Factories;
 use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\File;
 
 class JobFinderFactory extends Factory
 {
@@ -15,10 +16,11 @@ class JobFinderFactory extends Factory
      */
     public function definition()
     {
+        $avatars = array_map(fn($file) => $file->getFilename(), File::files(public_path('avatar')));
         $use_from = $this->faker->dateTimeBetween('-4 years', '-1 year');
         $interval = (int)date_diff($use_from, new DateTime('now'))->format('%a');
         return [
-            'avatar' => 'https:/i.pravatar.cc/',
+            'avatar' => Arr::random($avatars),
             'name' => $this->faker->name(),
             'gender' => $this->faker->numberBetween(0, 2),
             'age' => $this->faker->numberBetween(19, 55),

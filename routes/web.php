@@ -26,7 +26,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('admin/job-finders', [AdminJobFinderController::class, 'index']);
     Route::get('admin/job-finders/create', [AdminJobFinderController::class, 'create']);
     Route::post('admin/job-finders', [AdminJobFinderController::class, 'store']);
-    Route::get('admin/job-finders/{jobFinder}', [AdminJobFinderController::class, 'show']);
+    Route::get('admin/job-finders/{jobFinder}/edit', [AdminJobFinderController::class, 'edit']);
+    Route::patch('admin/job-finders/{jobFinder}', [AdminJobFinderController::class, 'update']);
     Route::delete('admin/job-finders/{jobFinder}', [AdminJobFinderController::class, 'destroy']);
 });
 

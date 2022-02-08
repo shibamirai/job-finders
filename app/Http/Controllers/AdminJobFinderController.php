@@ -9,7 +9,7 @@ class AdminJobFinderController extends Controller
 {
     public function index()
     {
-        return view('/admin/job-finders/index', [
+        return view('admin.job-finders.index', [
             'job_finders' => JobFinder::orderBy('hired_at', 'desc')->filter(
                 request(['search'])
             )->paginate(10),
@@ -18,12 +18,13 @@ class AdminJobFinderController extends Controller
 
     public function create()
     {
-        return view('/admin/job-finders/create');
+        return view('admin.job-finders.create');
     }
 
     public function store()
     {
         $attributes = request()->validate([
+            'avatar' => 'required',
             'name' => ['required', 'unique:job_finders,name'],
             'gender' => 'required',
             'age' => 'required',
@@ -37,19 +38,24 @@ class AdminJobFinderController extends Controller
         ]);
 
         $attributes = array_merge($attributes, [
-            'avatar' => 'https:/i.pravatar.cc/',
             'has_certificate' => request('certificate') ? true : false,
             'is_handicaps_opened' => request('opened') ? true : false,
         ]);
+
+        if (request('continue')) {
+            dd(request('continue'));
+        }
 
         JobFinder::create($attributes);
 
         return redirect('/admin/job-finders')->with('success', '追加しました！');
     }
 
-    public function show(JobFinder $jobFinder = null)
+    public function edit(JobFinder $jobFinder)
     {
-        # code...
+        return view('admin.job-finders.edit', [
+            'job_finder' => $jobFinder
+        ]);
     }
 
     public function destroy(JobFinder $jobFinder)
@@ -57,5 +63,30 @@ class AdminJobFinderController extends Controller
         $jobFinder->delete();
 
         return back()->with('success', '削除しました！');
+    }
+
+    public function update(JobFinder $jobFinder)
+    {
+        $attributes = request()->validate([
+            'avatar' => 'required',
+            'gender' => 'required',
+            'age' => 'required',
+            'handicaps' => 'required',
+            'use_from' => 'required',
+            'skills' => 'required',
+            'occupation' => 'required',
+            'description' => 'required',
+            'hired_at' => 'required',
+            'employment_pattern' => 'required',
+        ]);
+
+        $attributes = array_merge($attributes, [
+            'has_certificate' => request('certificate') ? true : false,
+            'is_handicaps_opened' => request('opened') ? true : false,
+        ]);
+
+        $jobFinder->update($attributes);
+
+        return redirect('/admin/job-finders')->with('success', '更新しました！');
     }
 }

@@ -3,7 +3,7 @@
 
     <div class="bg-white rounded-2xl px-6 py-6">
         <header class="flex items-center">
-            <img src="{{ $jobFinder->avatar }}60?u={{ $jobFinder->id }}" alt="" class="rounded-full mr-4">
+            <img src="{{ asset('avatar/' . $jobFinder->avatar) }}" alt="" class="rounded-full mr-4 w-16 border border-gray-00">
             <div>
                 <p class="text-sm">{{ $jobFinder->age }}歳 {{ $jobFinder->gender_str }}</p>
                 <p class="text-xl font-bold text-cyan-500 tracking-wider">{{ $jobFinder->occupation }}</p>
