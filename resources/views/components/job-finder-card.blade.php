@@ -47,9 +47,7 @@
         </div>
 
         <a href="/job-finders/{{ $jobFinder->id }}">
-            <button class="mt-8 bg-cyan-400 rounded-full text-center py-3 w-full text-white">
-                    ポートフォリオを見る
-            </button>
+            <x-button class="rounded-full w-full justify-center mt-8">ポートフォリオを見る</x-button>
         </a>
     </div>
 </div>

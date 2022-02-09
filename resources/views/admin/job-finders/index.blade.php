@@ -57,20 +57,13 @@
                         </td>
                         <td class="w-48 px-6 py-3">
                             <a href="/admin/job-finders/{{ $job_finder->id }}/edit">
-                                <button class="px-5 py-2 text-xs border-cyan-500 border text-cyan-500 rounded transition duration-300 hover:bg-cyan-700 hover:text-white focus:outline-none">
-                                    編集
-                                </button>
+                                <x-button class="text-xs" type="button">編集</x-button>
                             </a>
                             <form action="/admin/job-finders/{{ $job_finder->id }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('delete')
 
-                                <button
-                                    class="px-5 py-2 text-xs border-cyan-500 border text-cyan-500 rounded transition duration-300 hover:bg-cyan-700 hover:text-white focus:outline-none"
-                                    onclick="return confirm('削除しますか？');"
-                                >
-                                    削除
-                                </button>
+                                <x-button class="text-xs" onclick="return confirm('削除しますか？');">削除</x-button>
                             </form>
                         </td>
                     </tr>

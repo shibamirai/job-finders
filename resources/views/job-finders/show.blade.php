@@ -57,9 +57,11 @@
                 @endfor
             </div>
         </div>
-        <div class="flex">
-            <a href="/job-finders" class="mx-auto bg-cyan-400 text-white font-semibold uppercase py-2 px-20 rounded-full hover:bg-cyan-500">
-                一覧へ戻る
+        <div class="flex justify-center">
+            <a href="/job-finders">
+                <x-button type="button" class="rounded-full w-48">
+                    一覧へ戻る
+                </x-button>
             </a>
         </div>
     </div>

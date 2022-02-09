@@ -139,8 +139,26 @@
             </div>
         </div>
         <div class="text-center pt-5 pb-10">
-            <x-select id="continue" name="continue" type="checkbox" :items="['on' => '続いてポートフォリオを入力する']" selected />
-            <x-button class="rounded-full px-16 mt-4">OK</x-button>
+            <div class="">
+                <input id="continue" name="continue" type="checkbox" checked
+                       class="text-gray-800 border-gray-300 focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50"
+                >
+                <label class="ml-2 mr-4 ">続いてポートフォリオを入力する</label>
+            </div>
+            <button class="
+                inline-flex justify-center px-4 py-2 mt-4 w-48
+                bg-gray-800
+                border border-transparent
+                rounded-full
+                text-white uppercase tracking-widest
+                hover:bg-gray-700
+                active:bg-gray-900
+                focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 focus:ring-opacity-50
+                disabled:opacity-25
+                transition ease-in-out duration-150
+            ">
+                OK
+            </button>
         </div>
     </form>
 </x-app-layout>
