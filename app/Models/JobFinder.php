@@ -14,6 +14,11 @@ class JobFinder extends Model
 
     protected $guarded = [];
 
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, fn ($query, $search) =>

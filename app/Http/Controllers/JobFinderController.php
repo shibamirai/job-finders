@@ -10,7 +10,7 @@ class JobFinderController extends Controller
     public function index()
     {
         return view('job-finders.index', [
-            'job_finders' => JobFinder::orderBy('hired_at', 'desc')->paginate(9),
+            'job_finders' => JobFinder::withCount('works')->orderBy('hired_at', 'desc')->paginate(9),
         ]);
     }
 

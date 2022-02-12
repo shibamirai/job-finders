@@ -27,7 +27,7 @@ class AdminJobFinderController extends Controller
             'avatar' => 'required',
             'name' => ['required', 'unique:job_finders,name'],
             'gender' => 'required',
-            'age' => 'required',
+            'age' => 'required|integer|between:18,60',
             'handicaps' => 'required',
             'use_from' => 'required',
             'skills' => 'required',
@@ -42,13 +42,13 @@ class AdminJobFinderController extends Controller
             'is_handicaps_opened' => request('opened') ? true : false,
         ]);
 
+        $jobFinder = JobFinder::create($attributes);
+
         if (request('continue')) {
-            dd(request('continue'));
+            return redirect(route('works.create', $jobFinder))->with('success', '追加しました！');
+        } else {
+            return redirect('/admin/job-finders')->with('success', '追加しました！');
         }
-
-        JobFinder::create($attributes);
-
-        return redirect('/admin/job-finders')->with('success', '追加しました！');
     }
 
     public function edit(JobFinder $jobFinder)
@@ -70,7 +70,7 @@ class AdminJobFinderController extends Controller
         $attributes = request()->validate([
             'avatar' => 'required',
             'gender' => 'required',
-            'age' => 'required',
+            'age' => 'required|integer|between:18,60',
             'handicaps' => 'required',
             'use_from' => 'required',
             'skills' => 'required',

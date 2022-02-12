@@ -18,10 +18,10 @@
             </g>
         </svg>
         <h1 class="font-bold text-lg ml-2">
-            Todoリスト
+            {{ $work->content }}「{{ $work->title }}」
         </h1>
     </div>
-    <a href="#" class="text-cyan-500 mt-1">https://github.com/miraino-katachi</a>
-    <h1 class="font-semibold mt-1">PHP, Vue.js／3ヶ月</h1>
-    <p class="text-sm leading-5 mt-2">PHPで学んだことを活かして制作しました。検索機能を追加する作業に苦労しました。PhotoshopでUIを練るなど、見た目にもこだわりました。</p>
+    <a href="{{ $work->url }}" class="text-cyan-500 mt-1">{{ $work->url }}</a>
+    <h1 class="font-semibold mt-1">{{ $work->languages }}／{{ $work->creation_time >= 12 ? floor($work->creation_time / 12) . '年' : '' }}{{ $work->creation_time % 12 }}ヶ月</h1>
+    <p class="text-sm leading-5 mt-2">{{ $work->description }}</p>
 </article>

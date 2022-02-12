@@ -17,11 +17,7 @@
                     <th class="text-left font-bold px-4 py-2">障害</th>
                     <td>
                         {{ $jobFinder->handicaps }}
-                        @if ($jobFinder->has_certificate)
-                            (手帳あり)
-                        @else
-                            (手帳なし)
-                        @endif
+                        (手帳{{ $jobFinder->has_certificate ? 'あり' : 'なし'}})
                     </td>
                 </tr>
                 <tr class="border-y-2">
@@ -36,18 +32,18 @@
                     <th class="text-left font-bold px-4 py-2">雇用形態</th>
                     <td>
                         {{ $jobFinder->employment_pattern_str }}
-                        @if ($jobFinder->is_handicaps_opened)
-                            (オープン就労)
-                        @else
-                            (クローズ就労)
-                        @endif
+                        ({{ $jobFinder->is_handicaps_opened ? 'オープン' : 'クローズ' }}就労)
                     </td>
                 </tr>
             </table>
         </div>
 
         <a href="/job-finders/{{ $jobFinder->id }}">
-            <x-button class="rounded-full w-full justify-center mt-8">ポートフォリオを見る</x-button>
+            @if ($jobFinder->works_count > 0)
+                <x-button class="rounded-full w-full justify-center mt-8">ポートフォリオを見る</x-button>
+            @else
+                <x-button class="rounded-full w-full justify-center mt-8" disabled>ポートフォリオを見る</x-button>
+            @endif
         </a>
     </div>
 </div>

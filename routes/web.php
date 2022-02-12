@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminJobFinderController;
 use App\Http\Controllers\JobFinderController;
+use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,9 @@ Route::middleware(['auth'])->group(function() {
     Route::get('admin/job-finders/{jobFinder}/edit', [AdminJobFinderController::class, 'edit']);
     Route::patch('admin/job-finders/{jobFinder}', [AdminJobFinderController::class, 'update']);
     Route::delete('admin/job-finders/{jobFinder}', [AdminJobFinderController::class, 'destroy']);
+
+    Route::get('admin/job-finders/{jobFinder}/works/create', [WorkController::class, 'create'])->name('works.create');
+    Route::post('admin/job-finders/{jobFinder}/works', [WorkController::class, 'store'])->name('works.store');
 });
 
 require __DIR__.'/auth.php';

@@ -3,11 +3,29 @@
         就職者さんデータ編集フォーム
     </x-slot>
 
+    <div x-data="{open: 1}">
+        <nav class="max-w-4xl mx-auto">
+            <ul class="flex text-center">
+                <li @click="open = 1" class="flex-1 py-2 bg-white rounded-t-md text-sm font-medium" :class="{'bg-gray-200 text-gray-400 hover:text-gray-700' : open !== 1}">
+                    利用者さんについて
+                </li>
+                <li @click="open = 2" class="flex-1 py-2 bg-white rounded-t-md text-sm font-medium" :class="{'bg-gray-200 text-gray-400 hover:text-gray-700' : open !== 2}">
+                    就職先について
+                </li>
+                @foreach ($job_finder->works as $work)
+                    <li @click="open = {{ $loop->iteration }} + 2" class="flex-1 py-2 bg-white rounded-t-md text-sm font-medium" :class="{'bg-gray-200 text-gray-400 hover:text-gray-700' : open !== {{ $loop->iteration }} + 2}">
+                        ポートフォリオ({{ $loop->iteration }})
+                    </li>
+                @endforeach
+            </ul>
+        </nav>
+    </div>
     <form action="/admin/job-finders/{{ $job_finder->id }}" method="POST">
         @csrf
         @method('PATCH')
 
-        <div class="max-w-4xl mx-auto bg-white shadow-md rounded px-10 py-8 mb-4">
+        <x-job-finder-form :jobFinder="$job_finder" />
+        {{-- <div class="max-w-4xl mx-auto bg-white shadow-md rounded px-10 py-8 mb-4">
 
             <h1 class="text-xl text-cyan-500 text-center font-bold">利用者さんについて</h1>
 
@@ -139,7 +157,7 @@
 
                 <x-error name="opened" class="col-start-2 col-span-5" />
             </div>
-        </div>
+        </div> --}}
         <div class="text-center pt-5 pb-10">
             <x-button class="rounded-full px-16">更新</x-button>
         </div>

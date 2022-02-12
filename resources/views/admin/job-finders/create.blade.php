@@ -5,7 +5,8 @@
 
     <form action="/admin/job-finders" method="POST">
         @csrf
-        <div class="max-w-4xl mx-auto bg-white shadow-md rounded px-10 py-8 mb-4">
+        <x-job-finder-form />
+        {{-- <div class="max-w-4xl mx-auto bg-white shadow-md rounded px-10 py-8 mb-4">
 
             <h1 class="text-xl text-cyan-500 text-center font-bold">利用者さんについて</h1>
 
@@ -44,7 +45,7 @@
             <div class="mt-4 md:grid md:grid-cols-6 items-center">
                 <x-label for="age" value="年齢" />
 
-                <x-input id="age" class="col-start-2" type="number" name="age" :value="old('age')" /><div class="ml-2">歳</div>
+                <x-input id="age" class="col-start-2" type="number" name="age" min="18" max="60" :value="old('age')" /><div class="ml-2">歳</div>
 
                 <x-error name="age" class="col-start-2 col-span-5" />
             </div>
@@ -137,11 +138,11 @@
 
                 <x-error name="opened" class="col-start-2 col-span-5" />
             </div>
-        </div>
+        </div> --}}
         <div class="text-center pt-5 pb-10">
             <div class="">
                 <input id="continue" name="continue" type="checkbox" checked
-                       class="text-gray-800 border-gray-300 focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50"
+                    class="text-gray-800 border-gray-300 focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50"
                 >
                 <label class="ml-2 mr-4 ">続いてポートフォリオを入力する</label>
             </div>
