@@ -44,11 +44,7 @@ class AdminJobFinderController extends Controller
 
         $jobFinder = JobFinder::create($attributes);
 
-        if (request('continue')) {
-            return redirect(route('works.create', $jobFinder))->with('success', '追加しました！');
-        } else {
-            return redirect('/admin/job-finders')->with('success', '追加しました！');
-        }
+        return redirect(route('job-finders.edit', $jobFinder))->with('success', $jobFinder->name .'さんを追加しました！');
     }
 
     public function edit(JobFinder $jobFinder)
@@ -87,6 +83,6 @@ class AdminJobFinderController extends Controller
 
         $jobFinder->update($attributes);
 
-        return redirect('/admin/job-finders')->with('success', '更新しました！');
+        return redirect(route('job-finders.edit', $jobFinder))->with('success', $jobFinder->name .'さんを更新しました！');
     }
 }

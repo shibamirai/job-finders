@@ -3,7 +3,7 @@
         就職者情報一覧
     </x-slot>
 
-    <div class="bg-white px-10 py-8 text-sm">
+    <div class="bg-white px-10 py-8 text-sm rounded-md">
         <div class="flex border border-gray-300 mb-4 w-2/3">
             <div class="flex">
                 <span class="lg:px-3 py-2">
@@ -26,50 +26,51 @@
             </form>
         </div>
 
-        <table class="min-w-full text-left">
-            <thead class="text-cyan-500">
-                <tr class="border-b-2 border-gray-300">
-                    <th class="px-6 py-3">名前(年齢)</th>
-                    <th class="px-6 py-3">職種</th>
-                    <th class="px-6 py-3">雇用形態</th>
-                    <th class="px-6 py-3">就労開始日</th>
-                    <th class="px-6 py-3">利用期間</th>
-                    <th class="px-6 py-3" ></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($job_finders as $job_finder)
-                    <tr class="border-b border-gray-300">
-                        <td class="px-6 py-3">
-                            {{ $job_finder->name }}({{ $job_finder->age }})
-                        </td>
-                        <td class="px-6 py-3">
-                            {{ $job_finder->occupation }}
-                        </td>
-                        <td class="px-6 py-3">
-                            {{ $job_finder->employment_pattern_str }}({{ $job_finder->is_handicaps_opened ? 'オープン' : 'クローズ' }})
-                        </td>
-                        <td class="px-6 py-3">
-                            {{ $job_finder->hired_at }}
-                        </td>
-                        <td class="px-6 py-3">
-                            {{ $job_finder->period_of_use }}
-                        </td>
-                        <td class="w-48 px-6 py-3">
-                            <a href="/admin/job-finders/{{ $job_finder->id }}/edit">
-                                <x-button class="text-xs" type="button">編集</x-button>
-                            </a>
-                            <form action="/admin/job-finders/{{ $job_finder->id }}" method="POST" class="inline-block">
-                                @csrf
-                                @method('delete')
-
-                                <x-button class="text-xs" onclick="return confirm('削除しますか？');">削除</x-button>
-                            </form>
-                        </td>
+        <div class="">
+            <table class="w-full text-left">
+                <thead class="text-cyan-500">
+                    <tr class="border-b-2 border-gray-300">
+                        <th class="md:px-6 py-3">名前(年齢)</th>
+                        <th class="md:px-6 py-3">職種</th>
+                        <th class="px-6 py-3 hidden lg:table-cell">雇用形態</th>
+                        <th class="px-6 py-3 hidden md:table-cell">就労開始日</th>
+                        <th class="px-6 py-3 hidden lg:table-cell">利用期間</th>
+                        <th class="px-6 py-3" ></th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($job_finders as $job_finder)
+                        <tr class="border-b border-gray-300">
+                            <td class="md:px-6 py-3">
+                                {{ $job_finder->name }}({{ $job_finder->age }})
+                            </td>
+                            <td class="md:px-6 py-3">
+                                {{ $job_finder->occupation }}
+                            </td>
+                            <td class="px-6 py-3 hidden lg:table-cell">
+                                {{ $job_finder->employment_pattern_str }}({{ $job_finder->is_handicaps_opened ? 'オープン' : 'クローズ' }})
+                            </td>
+                            <td class="px-6 py-3 hidden md:table-cell">
+                                {{ $job_finder->hired_at }}
+                            </td>
+                            <td class="px-6 py-3 hidden lg:table-cell">
+                                {{ $job_finder->period_of_use }}
+                            </td>
+                            <td class="flex py-3">
+                                <a href="/admin/job-finders/{{ $job_finder->id }}/edit">
+                                    <x-button class="text-xs w-16 mr-1" type="button">編集</x-button>
+                                </a>
+                                <form action="/admin/job-finders/{{ $job_finder->id }}" method="POST" class="inline-block">
+                                    @csrf
+                                    @method('delete')
+                                    <x-button class="text-xs w-16" onclick="return confirm('削除しますか？');">削除</x-button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
         <div class="mt-4">
             {{ $job_finders->links() }}

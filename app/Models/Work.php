@@ -15,4 +15,13 @@ class Work extends Model
     {
         return $this->belongsTo(JobFinder::class);
     }
+
+    public function getPeriodOfCreationAttribute()
+    {
+        if ($this->creation_time) {
+            return ($this->creation_time >= 12 ? floor($this->creation_time / 12) . '年' : '') . $this->creation_time % 12 . 'ヶ月';
+        }
+
+        return '制作期間不明';
+    }
 }

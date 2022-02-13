@@ -37,10 +37,11 @@ class JobFinder extends Model
 
     public function getPeriodOfUseAttribute()
     {
-        return date_diff(
+        $diff = date_diff(
             new DateTime($this->use_from),
             new DateTime($this->hired_at)
-        )->format('%y年%mヶ月');
+        );
+        return ($diff->y > 0 ? $diff->y .'年' : '') . $diff->m . 'ヶ月';
     }
 
     public function getEmploymentPatternStrAttribute()

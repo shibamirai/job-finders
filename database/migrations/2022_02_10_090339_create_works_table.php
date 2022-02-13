@@ -18,9 +18,9 @@ class CreateWorksTable extends Migration
             $table->foreignId('job_finder_id')->constrained()->cascadeOnDelete();
             $table->string('content');
             $table->string('title')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('languages');
-            $table->integer('creation_time')->default(0);
+            $table->integer('creation_time')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
