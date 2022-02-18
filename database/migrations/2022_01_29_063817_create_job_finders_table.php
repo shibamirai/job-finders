@@ -24,7 +24,7 @@ class CreateJobFindersTable extends Migration
             $table->date('use_from');
             $table->string('skills')->nullable();
             $table->string('occupation');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->date('hired_at');
             $table->integer('employment_pattern');
             $table->boolean('is_handicaps_opened');

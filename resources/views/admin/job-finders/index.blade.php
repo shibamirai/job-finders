@@ -21,7 +21,7 @@
                 <input type="text"
                     name="search"
                     class="border-none tracking-wide w-full h-full text-sm"
-                    placeholder="検索"
+                    placeholder="名前または職種で検索"
                     value="{{ request('search') }}">
             </form>
         </div>

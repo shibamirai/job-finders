@@ -25,7 +25,6 @@ class JobFinder extends Model
             $query->where(fn ($query) =>
                 $query->where('name', 'like', '%' . $search . '%')
                     ->orWhere('occupation', 'like', '%' . $search . '%')
-                    ->orWhere('skills', 'like', '%' . $search . '%')
             )
         );
     }

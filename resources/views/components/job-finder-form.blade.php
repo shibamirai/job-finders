@@ -28,9 +28,9 @@
             <x-label for="name" value="名前" />
 
             @if ($jobFinder)
-                <x-input id="name" class="col-span-5" type="text" name="name" :value="old('name', optional($jobFinder)->name)" placeholder="非公開" disabled/>
+                <x-input id="name" class="col-span-5" type="text" name="name" :value="old('name', optional($jobFinder)->name)" placeholder="非公開" disabled />
             @else
-                <x-input id="name" class="col-span-5" type="text" name="name" :value="old('name', optional($jobFinder)->name)" placeholder="非公開" />
+                <x-input id="name" class="col-span-5" type="text" name="name" :value="old('name', optional($jobFinder)->name)" placeholder="非公開" requied />
             @endif
 
             <x-error name="name" class="col-start-2 col-span-5" />
@@ -51,7 +51,8 @@
         <div class="mt-4 md:grid md:grid-cols-6 items-center">
             <x-label for="age" value="年齢" />
 
-            <x-input id="age" class="col-start-2" type="number" name="age" :value="old('age', optional($jobFinder)->age)" /><div class="ml-2">歳</div>
+            <x-input id="age" class="col-start-2" type="number" name="age" :value="old('age', optional($jobFinder)->age)" requied />
+            <div class="ml-2">歳</div>
 
             <x-error name="age" class="col-start-2 col-span-5" />
         </div>
@@ -80,7 +81,7 @@
         <div class="mt-4 md:grid md:grid-cols-6 items-center">
             <x-label for="use_from" value="利用開始日" />
 
-            <x-input id="use_from" class="col-span-2" type="date" name="use_from" :value="old('use_from', optional($jobFinder)->use_from)" />
+            <x-input id="use_from" class="col-span-2" type="date" name="use_from" :value="old('use_from', optional($jobFinder)->use_from)" requied />
 
             <x-error name="use_from" class="col-start-2 col-span-5" />
         </div>
@@ -100,7 +101,7 @@
         <div class="mt-4 md:grid md:grid-cols-6 items-center">
             <x-label for="occupation" value="職種" />
 
-            <x-input id="occupation" class="col-span-5" type="text" name="occupation" :value="old('occupation', optional($jobFinder)->occupation)" placeholder="PHPプログラマー, HTMLコーダー" />
+            <x-input id="occupation" class="col-span-5" type="text" name="occupation" :value="old('occupation', optional($jobFinder)->occupation)" placeholder="PHPプログラマー, HTMLコーダー" requied />
 
             <x-error name="occupation" class="col-start-2 col-span-5" />
         </div>
@@ -118,7 +119,7 @@
         <div class="mt-4 md:grid md:grid-cols-6 items-center">
             <x-label for="hired_at" value="就労開始日" />
 
-            <x-input id="hired_at" class="col-span-2" type="date" name="hired_at" :value="old('hired_at', optional($jobFinder)->hired_at)" />
+            <x-input id="hired_at" class="col-span-2" type="date" name="hired_at" :value="old('hired_at', optional($jobFinder)->hired_at)" requied />
 
             <x-error name="hired_at" class="col-start-2 col-span-5" />
         </div>
