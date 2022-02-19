@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="/job-finders">
+                    <a href="{{ route('index') }}">
                         <img
                             src="https://cdn.goope.jp/66978/191105144609-5dc10ca18a32b.png"
                             alt="大阪本町のプログラミング IT特化就労移行支援事業所　未来のかたち"
@@ -17,12 +17,12 @@
                 @auth
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link href="/admin/job-finders" :active="request()->is('admin/job-finders')">
+                        <x-nav-link href="{{ route('job-finders.index') }}" :active="request()->is('admin/job-finders')">
                             就職者一覧
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link href="/admin/job-finders/create" :active="request()->is('admin/job-finders/create')">
+                        <x-nav-link href="{{ route('job-finders.create') }}" :active="request()->is('admin/job-finders/create')">
                             情報登録
                         </x-nav-link>
                     </div>
@@ -81,10 +81,10 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         @auth
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="/admin/job-finders" :active="request()->is('admin/job-finders')">
+                <x-responsive-nav-link href="{{ route('job-finders.index') }}" :active="request()->is('admin/job-finders')">
                     就職者一覧
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="/admin/job-finders/create" :active="request()->is('admin/job-finders/create')">
+                <x-responsive-nav-link href="{{ route('job-finders.create') }}" :active="request()->is('admin/job-finders/create')">
                     情報登録
                 </x-responsive-nav-link>
             </div>

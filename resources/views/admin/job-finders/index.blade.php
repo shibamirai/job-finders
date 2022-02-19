@@ -17,7 +17,7 @@
                     </svg>
                 </span>
             </div>
-            <form action="/admin/job-finders" method="GET" class="flex-grow">
+            <form action="{{ route('job-finders.index') }}" method="GET" class="flex-grow">
                 <input type="text"
                     name="search"
                     class="border-none tracking-wide w-full h-full text-sm"
@@ -57,10 +57,10 @@
                                 {{ $job_finder->period_of_use }}
                             </td>
                             <td class="flex py-3">
-                                <a href="/admin/job-finders/{{ $job_finder->id }}/edit">
+                                <a href="{{ route('job-finders.edit', $job_finder) }}">
                                     <x-button class="text-xs w-16 mr-1" type="button">編集</x-button>
                                 </a>
-                                <form action="/admin/job-finders/{{ $job_finder->id }}" method="POST" class="inline-block">
+                                <form action="{{ route('job-finders.destroy', $job_finder) }}" method="POST" class="inline-block">
                                     @csrf
                                     @method('delete')
                                     <x-button class="text-xs w-16" onclick="return confirm('削除しますか？');">削除</x-button>

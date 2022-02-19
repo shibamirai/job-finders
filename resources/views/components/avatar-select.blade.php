@@ -1,6 +1,6 @@
 @foreach ($items as $value)
     <div class="text-center mr-2">
-        <img src="http://localhost/avatar/{{ $value }}" alt="avatar" class="w-16 rounded-full">
+        <img src="{{ asset('avatar/' . $value) }}" alt="avatar" class="w-16 rounded-full">
         <input
             type="radio"
             {{ $disabled ? 'disabled' : '' }}

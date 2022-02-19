@@ -70,9 +70,9 @@
                 <div class="title m-b-md">就職者情報</div>
 
                 <div class="links">
-                    <a href="{{ route('home') }}">閲覧</a>
+                    <a href="{{ route('index') }}">閲覧</a>
                     @auth
-                        <a href="/admin/job-finders">編集</a>
+                        <a href="{{ route('job-finders.create') }}">編集</a>
                     @else
                         <a href="{{ route('login') }}">管理者ログイン</a>
                     @endauth

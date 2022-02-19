@@ -38,7 +38,7 @@
             </table>
         </div>
 
-        <a href="/job-finders/{{ $jobFinder->id }}">
+        <a href="{{ route('show', $jobFinder) }}">
             @if ($jobFinder->works_count > 0)
                 <x-button class="rounded-full w-full justify-center mt-8">ポートフォリオを見る</x-button>
             @else

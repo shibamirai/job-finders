@@ -4,10 +4,10 @@
     <h1 class="text-xl text-cyan-500 text-center font-bold">利用者さんについて</h1>
 
     @if ($jobFinder)
-    <form action="/admin/job-finders/{{ $jobFinder->id }}" method="POST">
+    <form action="{{ route('job-finders.update', $jobFinder) }}" method="POST">
         @method('PATCH')
     @else
-    <form action="/admin/job-finders" method="POST">
+    <form action="{{ route('job-finders.store') }}" method="POST">
     @endif
 
         @csrf
