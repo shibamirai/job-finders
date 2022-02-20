@@ -12,7 +12,7 @@ class AdminJobFinderController extends Controller
         return view('admin.job-finders.index', [
             'job_finders' => JobFinder::orderBy('hired_at', 'desc')->filter(
                 request(['search'])
-            )->paginate(10),
+            )->paginate(9),
         ]);
     }
 
