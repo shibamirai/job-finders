@@ -19,7 +19,7 @@ class CreateJobFindersTable extends Migration
             $table->string('name');
             $table->integer('gender')->default(0);
             $table->integer('age');
-            $table->string('handicaps')->nullable();
+            $table->integer('handicap')->default(0);
             $table->boolean('has_certificate')->default(false);
             $table->date('use_from');
             $table->string('skills')->nullable();

@@ -16,7 +16,7 @@
                 <tr class="border-y-2">
                     <th class="text-left font-bold px-4 py-2">障害</th>
                     <td>
-                        {{ $jobFinder->handicaps }}
+                        {{ $jobFinder->handicap_str }}
                         (手帳{{ $jobFinder->has_certificate ? 'あり' : 'なし'}})
                     </td>
                 </tr>

@@ -57,13 +57,15 @@
             <x-error name="age" class="col-start-2 col-span-5" />
         </div>
 
-        <!-- 障害名 -->
+        <!-- 障害 -->
         <div class="mt-4 md:grid md:grid-cols-6 items-center">
-            <x-label for="handicaps" value="障害名" />
+            <x-label for="handicap" value="障害" />
 
-            <x-input id="handicaps" class="col-span-5" type="text" name="handicaps" :value="old('handicaps', optional($jobFinder)->handicaps)" placeholder="うつ病、アスペルガー症候群など" />
+            <div class="col-span-5 flex flex-wrap items-center">
+                <x-select id="handicap" name="handicap" type="radio" :items="\App\Enums\Handicap::asSelectArray()" :selected="optional($jobFinder)->handicap" />
+            </div>
 
-            <x-error name="handicaps" class="col-start-2 col-span-5" />
+            <x-error name="handicap" class="col-start-2 col-span-5" />
         </div>
 
         <!-- 手帳有無 -->

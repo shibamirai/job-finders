@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\EmploymentPattern;
 use App\Enums\Gender;
+use App\Enums\Handicap;
 use DateTime;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +33,11 @@ class JobFinder extends Model
     public function getGenderStrAttribute()
     {
         return Gender::getDescription($this->gender);
+    }
+
+    public function getHandicapStrAttribute()
+    {
+        return Handicap::getDescription($this->handicap);
     }
 
     public function getPeriodOfUseAttribute()
