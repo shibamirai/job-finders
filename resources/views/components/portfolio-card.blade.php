@@ -11,5 +11,5 @@
     </div>
     <a href="{{ $work->url }}" class="text-cyan-500 mt-1">{{ $work->url }}</a>
     <h1 class="font-semibold mt-1">{{ $work->languages }}／{{ $work->period_of_creation }}</h1>
-    <p class="text-sm leading-5 mt-2">{{ $work->description }}</p>
+    <p class="text-sm leading-5 mt-2 whitespace-pre-wrap">{{ $work->description }}</p>
 </article>
