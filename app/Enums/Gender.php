@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum Gender: int
+enum Gender: int implements Selectable
 {
     case NONE =   0;
     case MALE =   1;

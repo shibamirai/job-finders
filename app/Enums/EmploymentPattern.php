@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum EmploymentPattern:int
+enum EmploymentPattern:int implements Selectable
 {
     case UNKNOWN =    0;
     case REGULAR =    1;

@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum Handicap: int
+enum Handicap: int implements Selectable
 {
     case NONE =        0;
     case MENTAL =      1;
