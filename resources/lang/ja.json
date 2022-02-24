@@ -1,0 +1,18 @@
+{
+    "Log In": "管理者ログイン",
+    "Log in": "ログイン",
+    "Log Out": "ログアウト",
+    "Name": "名前",
+    "Email": "メールアドレス",
+    "Password": "パスワード",
+    "Confirm Password": "パスワード(確認)",
+    "Confirm": "確認",
+    "Register": "登録",
+    "Remember me": "ログイン状態を保持する",
+    "Forgot your password?": "パスワード再発行",
+    "Already registered?": "すでにアカウントをお持ちですか？",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "えっ、パスワード忘れたんですか？しっかりしてください。メールでパスワードリセットリンクを送るので、リンク先で新しいパスワードを設定してください",
+    "Email Password Reset Link": "パスワード再設定メールを送信",
+    "Reset Password": "リセット",
+    "Whoops! Something went wrong.": "ん？なんかおかしい"
+}
