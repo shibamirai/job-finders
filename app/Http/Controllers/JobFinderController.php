@@ -20,4 +20,11 @@ class JobFinderController extends Controller
             'jobFinder' => $jobFinder,
         ]);
     }
+
+    public function statistics()
+    {
+        return view('statistics', [
+            'jobFinders' => JobFinder::all(),
+        ]);
+    }
 }

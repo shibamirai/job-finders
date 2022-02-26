@@ -103,7 +103,7 @@
         <div class="mt-4 md:grid md:grid-cols-6 items-center">
             <x-label for="occupation" value="職種" />
 
-            <x-input id="occupation" class="col-span-5" type="text" name="occupation" :value="old('occupation', optional($jobFinder)->occupation)" placeholder="PHPプログラマー, HTMLコーダー" requied />
+            <x-input id="occupation" class="col-span-5" type="text" name="occupation" :value="old('occupation', optional($jobFinder)->occupation)" placeholder="プログラマ, エンジニア, コーダ, デザイナ などはIT系に分類されます" requied />
 
             <x-error name="occupation" class="col-start-2 col-span-5" />
         </div>
@@ -112,7 +112,7 @@
         <div class="mt-4 md:grid md:grid-cols-6 items-center">
             <x-label for="description" value="仕事内容" />
 
-            <x-input id="description" class="col-span-5" type="text" name="description" :value="old('description', optional($jobFinder)->description)" placeholder="Webサイト構築" />
+            <x-input id="description" class="col-span-5" type="text" name="description" :value="old('description', optional($jobFinder)->description)" placeholder="システム開発, Webサイト構築など" />
 
             <x-error name="description" class="col-start-2 col-span-5" />
         </div>

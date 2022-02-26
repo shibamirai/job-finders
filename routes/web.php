@@ -20,6 +20,8 @@ Route::controller(JobFinderController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('job-finders', 'index')->name('index');
     Route::get('job-finders/{job_finder}', 'show')->name('show');
+
+    Route::get('statistics', 'statistics')->name('statistics');
 });
 
 // Route::controller(AdminJobFinderController::class)->prefix('admin')->middleware(['auth'])->group(function () {

@@ -9,7 +9,8 @@ enum EmploymentPattern:int implements Selectable
     case CONTRACTOR = 2;
     case TEMPORARY =  3;
     case PARTTIME =   4;
-    case OTHER =      5;
+    case FREE =       5;
+    case OTHER =      6;
 
     public function label(): string
     {
@@ -18,6 +19,7 @@ enum EmploymentPattern:int implements Selectable
             EmploymentPattern::CONTRACTOR => '契約社員',
             EmploymentPattern::TEMPORARY => '派遣社員',
             EmploymentPattern::PARTTIME => 'アルバイト・パート',
+            EmploymentPattern::FREE => 'フリー',
             EmploymentPattern::OTHER => 'その他',
             EmploymentPattern::UNKNOWN => '不明',
         };

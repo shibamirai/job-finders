@@ -14,7 +14,7 @@ class AdminJobFinderController extends Controller
     public function index()
     {
         return view('admin.job-finders.index', [
-            'jobFinders' => JobFinder::orderBy('hired_at', 'desc')->filter(
+            'jobFinders' => JobFinder::orderBy('hired_at', 'desc')->orderBy('id')->filter(
                 request(['search'])
             )->paginate(9)->withQueryString(),
         ]);
