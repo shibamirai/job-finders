@@ -177,10 +177,9 @@ new Chart(document.getElementById("skillChart"), {
             display: false,
         },
         scales: {
-            yAxes: [{
+            xAxes: [{
                 ticks: {
                     suggestedMin: 0,
-                    stepSize: 10,
                 }
             }]
         }

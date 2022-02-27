@@ -20,7 +20,7 @@ class WorkFactory extends Factory
             'content' => $this->faker->realTextBetween(10, 20),
             'title' => $this->faker->realTextBetween(10, 20),
             'url' => $this->faker->url(),
-            'languages' => Arr::random(['Java', 'PHP', 'HTML/CSS']),
+            'languages' => Arr::random(['Java', 'PHP', 'HTML', 'JavaScript', 'Python']),
             'creation_time' => $this->faker->numberBetween(0, 24),
             'description' => $this->faker->realTextBetween(10, 200),
         ];

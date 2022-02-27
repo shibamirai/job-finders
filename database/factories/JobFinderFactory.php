@@ -27,11 +27,11 @@ class JobFinderFactory extends Factory
             'handicap' => $this->faker->numberBetween(0, 3),
             'has_certificate' => $this->faker->boolean(80),
             'use_from' => $use_from->format('Y-m-d'),
-            'skills' => Arr::random(['Java', 'PHP', 'HTML/CSS']),
-            'occupation' => Arr::random(['Javaプログラマー', 'PHPプログラマー', 'HTML/CSSコーダー']),
+            'skills' => Arr::random(['Java', 'PHP', 'HTML', 'JavaScript', 'Python']),
+            'occupation' => Arr::random(['プログラマ', 'エンジニア', 'HTMLコーダ', '事務']),
             'description' => $this->faker->realText(60),
             'hired_at' => $use_from->modify(rand(4, round($interval/30)) . ' months')->format('Y-m-d'),
-            'employment_pattern' => $this->faker->numberBetween(0, 5),
+            'employment_pattern' => $this->faker->numberBetween(0, 6),
             'is_handicaps_opened' => $this->faker->boolean(65),
         ];
     }

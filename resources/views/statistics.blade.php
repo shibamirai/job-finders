@@ -100,7 +100,7 @@
 
     {{-- グラフ表示処理 --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="https://github.com/nagix/chartjs-plugin-colorschemes/releases/download/v0.2.0/chartjs-plugin-colorschemes.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
     <script>
         // 就職者情報取得
         const finders = @json($jobFinders);
