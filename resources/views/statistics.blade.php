@@ -103,20 +103,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
     <script>
         // 就職者情報取得
-        const finders = @json($jobFinders);
+        const finders = @js($jobFinders);
 
         // グラフ表示データの初期化
         const gender = {
-            data: new Array(@json(count(\App\Enums\Gender::cases()))).fill(0),
-            labels: @json(\App\Enums\Gender::asSelectArray())
+            data: new Array(@js(count(\App\Enums\Gender::cases()))).fill(0),
+            labels: @js(\App\Enums\Gender::asSelectArray())
         }
         const handicap = {
-            data: new Array(@json(count(\App\Enums\Handicap::cases()))).fill(0),
-            labels: @json(\App\Enums\Handicap::asSelectArray())
+            data: new Array(@js(count(\App\Enums\Handicap::cases()))).fill(0),
+            labels: @js(\App\Enums\Handicap::asSelectArray())
         }
         const employment_pattern = {
-            data: new Array(@json(count(\App\Enums\EmploymentPattern::cases()))).fill(0),
-            labels: @json(\App\Enums\EmploymentPattern::asSelectArray())
+            data: new Array(@js(count(\App\Enums\EmploymentPattern::cases()))).fill(0),
+            labels: @js(\App\Enums\EmploymentPattern::asSelectArray())
         }
         const skill = {
             data: [0, 0, 0, 0, 0],
