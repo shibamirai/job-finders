@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\WorkRequest;
 use App\Models\JobFinder;
 use App\Models\Work;
 use Illuminate\Http\Request;
@@ -16,20 +17,16 @@ class WorkController extends Controller
         ]);
     }
 
-    public function store(JobFinder $jobFinder)
+    public function store(JobFinder $jobFinder, WorkRequest $request)
     {
-        $attributes = request()->validate([
-            'content' => 'required',
-            'title' => 'nullable',
-            'url' => 'nullable|url',
-            'languages' => 'required',
-            'creation_time' => 'nullable|integer',
-            'description' => 'nullable',
-        ]);
-
-        $attributes = array_merge($attributes, [
-            'job_finder_id' => $jobFinder->id,
-        ]);
+        $attributes = array_merge(
+            $request->safe()->only([
+                'content', 'title', 'url', 'languages', 'creation_time', 'description',
+            ]),
+            [
+                'job_finder_id' => $jobFinder->id,
+            ]
+        );
 
         Work::create($attributes);
 
@@ -44,15 +41,10 @@ class WorkController extends Controller
         ]);
     }
 
-    public function update(JobFinder $jobFinder, Work $work)
+    public function update(JobFinder $jobFinder, Work $work, WorkRequest $request)
     {
-        $attributes = request()->validate([
-            'content' => 'required',
-            'title' => 'nullable',
-            'url' => 'nullable|url',
-            'languages' => 'required',
-            'creation_time' => 'nullable|integer',
-            'description' => 'nullable',
+        $attributes = $request->safe()->only([
+            'content', 'title', 'url', 'languages', 'creation_time', 'description',
         ]);
 
         $work->update($attributes);

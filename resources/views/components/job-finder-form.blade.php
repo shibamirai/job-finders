@@ -28,7 +28,7 @@
             <x-label for="name" value="名前" />
 
             @if ($jobFinder)
-                <x-input id="name" class="col-span-5" type="text" name="name" :value="old('name', optional($jobFinder)->name)" placeholder="非公開" disabled />
+                <x-input id="name" class="col-span-5" type="text" name="name" :value="old('name', optional($jobFinder)->name)" placeholder="非公開" readonly />
             @else
                 <x-input id="name" class="col-span-5" type="text" name="name" :value="old('name', optional($jobFinder)->name)" placeholder="非公開" requied />
             @endif
