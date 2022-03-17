@@ -7,6 +7,7 @@ Laravel 9 で作成
 - PHP Ver8.1以上
 - composer
 
+- git
 
 ## 実行方法
 
